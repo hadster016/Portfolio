@@ -1,0 +1,142 @@
+body {
+    background-image: url('SL.123119.26540.04.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+}
+header {
+    padding: 20px; /* Some padding */
+    text-align: center; /* Center the text */
+    color: rgb(4,253,255);
+    position: relative;
+    z-index: 1;
+}
+p {
+    color : rgb(4,253,255);
+    display: block;
+    font-family: Arial, Helvetica, sans-serif; 
+    text-align: center; 
+    margin: 3px;
+}
+.footer {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: orange;
+    display: block;
+    font-family: 'Libre Caslon Display', serif; 
+    text-align: center; 
+    margin: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .mastercontainer > div {
+        flex-direction: column;
+    }
+    h2 {
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+        margin-top: 15px; /* Increase margin for spacing */
+    }
+
+    p {
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+        margin-top: 10px; /* Increase margin for spacing */
+    }
+
+}
+
+.key {
+    /* background-color: #f4f4f4; */
+    border: 4px solid rgb(4,253,255);
+    border-radius: 10px;
+    margin:1rem;
+    width: 70px;
+    height: 70px;
+    font-family: "Libre Caslon Display", serif;
+    font-size: 1rem;
+    padding: 2rem .9rem;
+    transition: all .1s;
+    text-align: center;
+    cursor: crosshair;
+    text-shadow: 0 0 5px #ffc600;
+    display: block;
+}
+
+.playing{
+    transform: scale(1.3);
+    border-color: #ffc600;
+    box-shadow: 0 0 2rem #ffc600;
+    color: orange;
+    text-transform: uppercase;
+}
+
+kbd {
+    display: block;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.sound {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: orange;
+    display: block;
+}
+.pContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #362929;
+    margin: 0 auto; /* Center the container horizontally */
+    width: fit-content; /* Adjust width to fit content */
+    padding: 10px; /* Add some padding */
+}
+
+.piano {
+    position: relative;
+    width: fit-content; /* Width of the piano */
+    height: 200px; /* Height of the piano */
+    display: flex;
+    align-items: flex-end; /* Align keys to the bottom */
+    border: 1px solid ;
+    background-color: #080606;
+}
+
+.keys {
+    border: 1px solid #ccc; /* Border for keys */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all .1s;
+}
+
+.white {
+    background-color: white;
+    width: 50px; /* Width of white keys */
+    height: 180px; /* Height of white keys */
+}
+
+.black {
+    background-color: black;
+    width: 30px; /* Width of black keys */
+    height: 120px; /* Height of black keys */
+    position: absolute; /* Position black keys on top of white keys */
+    z-index: 1; /* Ensure black keys are on top */
+}
+
+/* Positioning black keys */
+#C-sharp { left: 35px; top: 0px; } /* Position C# */
+#D-sharp { left: 90px;  top: 0px;  } /* Position D# */
+#F-sharp { left: 190px;  top: 0px; } /* Position F# */
+#G-sharp { left: 245px;  top: 0px; } /* Position G# */
+#A-sharp { left: 300px;  top: 0px;  } /* Position A# */

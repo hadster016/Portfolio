@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Layout</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #362929; /* Dark background for contrast
+            margin: 0; /* Remove default margin */
+        }
+
+        .piano {
+            position: relative;
+            width: 450px; /* Width of the piano */
+            height: 200px; /* Height of the piano */
+            display: flex;
+            align-items: flex-end; /* Align keys to the bottom */
+            border: 1px solid ;
+            background-color: #080606;
+        }
+
+        .key {
+            border: 1px solid #ccc; /* Border for keys */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all .1s;
+        }
+
+        .white {
+            background-color: white;
+            width: 50px; /* Width of white keys */
+            height: 180px; /* Height of white keys */
+        }
+
+        .black {
+            background-color: black;
+            width: 30px; /* Width of black keys */
+            height: 120px; /* Height of black keys */
+            position: absolute; /* Position black keys on top of white keys */
+            z-index: 1; /* Ensure black keys are on top */
+        }
+
+        /* Positioning black keys */
+        #C-sharp { left: 35px; top: 0px; } /* Position C# */
+        #D-sharp { left: 105px;  top: 0px;  } /* Position D# */
+        #F-sharp { left: 185px;  top: 0px; } /* Position F# */
+        #G-sharp { left: 255px;  top: 0px; } /* Position G# */
+        #A-sharp { left: 325px;  top: 0px;  } /* Position A# */
+
+    .playing{
+    transform: scale(1.3);
+    border-color: #ffc600;
+    box-shadow: 0 0 2rem #ffc600;
+    color: orange;
+    text-transform: uppercase;
+}
+    </style>
+</head>
+<body>
+    <header>                                                       
+        <h1>Piano</h1>
+    </header>
+    <div class="piano">
+        <div class="key white" id="C" data-key="65"></div>
+        <div class="key black" id="C-sharp" data-key="66"></div>
+        <div class="key white" id="D" data-key="67"></div>
+        <div class="key black" id="D-sharp" data-key="68"></div>
+        <div class="key white" id="E" data-key="69"></div>
+        <div class="key white" id="F" data-key="70"></div>
+        <div class="key black" id="F-sharp" data-key="71"></div>
+        <div class="key white" id="G" data-key="72"></div>
+        <div class="key black" id="G-sharp" data-key="73"></div>
+        <div class="key white" id="A" data-key="74"></div>
+        <div class="key black" id="A-sharp" data-key="75"></div>
+        <div class="key white" id="B" data-key="76"></div>
+        <div class="key white" id="C2" data-key="77"></div>
+    </div>
+    <audio data-key="65" src="24-piano-keys\key08.mp3"></audio>
+    <audio data-key="66" src="24-piano-keys/key09.mp3"></audio>
+    <audio data-key="67" src="24-piano-keys/key10.mp3"></audio>
+    <audio data-key="68" src="24-piano-keys/key11.mp3"></audio>
+    <audio data-key="69" src="24-piano-keys/key12.mp3"></audio>
+    <audio data-key="70" src="24-piano-keys/key13.mp3"></audio>
+    <audio data-key="71" src="24-piano-keys/key14.mp3"></audio>
+    <audio data-key="72" src="24-piano-keys/key15.mp3"></audio>
+    <audio data-key="73" src="24-piano-keys/key16.mp3"></audio>
+    <audio data-key="74" src="24-piano-keys/key17.mp3"></audio>
+    <audio data-key="75" src="24-piano-keys/key18.mp3"></audio>
+    <audio data-key="76" src="24-piano-keys/key19.mp3"></audio>
+    <audio data-key="77" src="24-piano-keys/key20.mp3"></audio>
+    
+</body>
+<script>
+    // window.addEventListener('keydown' , function(e){
+    //     // const audio = document.querySelector(`audio[data-key="65"]`);
+    //     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    //     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    //     // console.log(e);
+    //     // console.log(e.keyCode);
+    //     // console.log(audio);
+    //     console.log(key);
+    //     if(!audio) return;
+    //     audio.currentTime = 0;
+    //     audio.play();
+    //     key.classList.add('playing'); //key.addclass('playing');
+    // });
+
+    window.addEventListener('keydown', function(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+    if (!audio) return;
+
+    audio.currentTime = 0; // Reset audio to start
+    audio.play(); // Play the audio
+
+    key.classList.add('playing'); // Add the playing class
+
+        // Stop the audio after 0.5 seconds
+        setTimeout(() => {
+        audio.pause(); // Pause the audio
+        audio.currentTime = 0; // Reset audio to start
+        key.classList.remove('playing'); // Remove the playing class
+    }, 500); // 500 milliseconds = 0.5 seconds
+});
+
+// Select all elements with the class 'key'
+const keyDivs = document.querySelectorAll('.key');
+
+// Loop through each keyDiv and add a click event listener as the event object has to be passed to the function
+keyDivs.forEach(keyDiv => { keyDiv.addEventListener('click', function(e) {
+        const audio = document.querySelector(`audio[data-key="${keyDiv.dataset.key}"]`);
+        const key = document.querySelector(`.key[data-key="${keyDiv.dataset.key}"]`);
+        // console.log(key);
+        if (!audio) return; 
+        audio.currentTime = 0; // Reset audio to start
+        audio.play(); // Play the audio
+        key.classList.add('playing'); // Add 'playing' class to the key
+
+        // Stop the audio after 0.5 seconds
+        setTimeout(() => {
+        audio.pause();  
+        audio.currentTime = 0;  
+        key.classList.remove('playing'); // Remove the playing class
+    }, 500);  
+    });
+
+});
+
+    // const keys = document.querySelectorAll('.key');
+    keyDivs.forEach(key => key.addEventListener('transitionend', function(e){
+        console.log(e.propertyName);
+        if(e.propertyName !== 'transform') 
+        return;
+        this.classList.remove('playing');
+    }));
+</script>
+</html>

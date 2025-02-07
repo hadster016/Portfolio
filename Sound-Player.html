@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sounds Player Project</title>
+    <link rel="stylesheet" href="./SoundPlayerstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+<header> 
+    <h1>Haider's Sound Player</h1>                                                      
+    <h2>Drum Kit</h2>
+</header>
+<div class="mastercontainer">
+<div class="container">
+    <div class="keys-box">
+        <div data-key="81" class="key">
+            <kbd>Q</kbd>
+            <span class="sound">Drum</span>
+        </div>
+        <div data-key="87" class="key">
+            <kbd>W</kbd>
+            <span class="sound">Openhat</span>
+        </div>
+        <div data-key="69" class="key">
+            <kbd>E</kbd>
+            <span class="sound">ClosedHat</span>
+        </div>
+        <div data-key="82" class="key">
+            <kbd>R</kbd>
+            <span class="sound">Kick</span>
+        </div>
+        <div data-key="84" class="key">
+            <kbd>T</kbd>
+            <span class="sound">Snare</span>
+        </div>
+    </div>
+
+<div><p>The Drums and Piano will play with Key presses and Mouse click, 
+        the Piano is using the keys 2nd line down on a QWERTY keyboard 
+        <span style="color: rgb(196, 171, 32);">s</span>o thats: a<span style="color: rgb(196, 171, 32);">,
+        </span> s... and to the Enter key.</br>The sound has been cut down to 0.7 sec 
+        to limit the sustain on the piano sounds. Later on I will introduce a sustain pedal effect 
+        via the shift key.</p></div>
+
+    <audio data-key="81" src="./Drums/snare-drum-greshnik-hit_4bpm_D_major.wav"></audio>
+    <audio data-key="87" src="./Drums/hi-hat-closed-harsh-shot-2_1bpm.wav"></audio>  
+    <audio data-key="69" src="./Drums/hi-hat-closed-harsh-shot-4_1bpm.wav"</audio>
+    <audio data-key="82" src="./Drums/snare-drum-jaded-hit_4bpm_D_major.wav"></audio>
+    <audio data-key="84" src="./Drums/deep-house-slapping-snare_1bpm.wav"></audio>
+</div>
+<div>
+<header>                                                       
+    <h2>Piano</h2>
+</header>
+</div>
+<div class="pContainer">
+<div class="piano">
+    <div class="keys white" id="C" data-key="65"></div>
+    <div class="keys black" id="C-sharp" data-key="83"></div>
+    <div class="keys white" id="D" data-key="68"></div>
+    <div class="keys black" id="D-sharp" data-key="70"></div>
+    <div class="keys white" id="E" data-key="71"></div>
+    <div class="keys white" id="F" data-key="72"></div>
+    <div class="keys black" id="F-sharp" data-key="74"></div>
+    <div class="keys white" id="G" data-key="75"></div>
+    <div class="keys black" id="G-sharp" data-key="76"></div>
+    <div class="keys white" id="A" data-key="186"></div>
+    <div class="keys black" id="A-sharp" data-key="192"></div>
+    <div class="keys white" id="B" data-key="222"></div>
+    <div class="keys white" id="C2" data-key="13"></div>
+    <!-- <div class="keys white" id="D2" data-key="90"></div> -->
+    </div>
+    <audio data-key="65" src="24-piano-keys\key08.mp3"></audio>
+    <audio data-key="83" src="24-piano-keys/key09.mp3"></audio>
+    <audio data-key="67" src="24-piano-keys/key10.mp3"></audio>
+    <audio data-key="68" src="24-piano-keys/key11.mp3"></audio>
+    <audio data-key="69" src="24-piano-keys/key12.mp3"></audio>
+    <audio data-key="70" src="24-piano-keys/key13.mp3"></audio>
+    <audio data-key="71" src="24-piano-keys/key14.mp3"></audio>
+    <audio data-key="72" src="24-piano-keys/key15.mp3"></audio>
+    <audio data-key="73" src="24-piano-keys/key16.mp3"></audio>
+    <audio data-key="74" src="24-piano-keys/key17.mp3"></audio>
+    <audio data-key="75" src="24-piano-keys/key18.mp3"></audio>
+    <audio data-key="76" src="24-piano-keys/key19.mp3"></audio>
+    <audio data-key="186" src="24-piano-keys/key20.mp3"></audio>
+    <audio data-key="192" src="24-piano-keys/key21.mp3"></audio>
+    <audio data-key="222" src="24-piano-keys/key22.mp3"></audio>
+    <audio data-key="13" src="24-piano-keys/key23.mp3"></audio>
+</div>
+
+<footer >
+    <a href="./TicTac-React/public/index.html" class = "footer" >Return to Home Page</a>
+</footer>
+</div>
+<script src="./SoundPlayerscript.js"></script>
+    
+</body>
+
+<script>
+        src="./SoundPlayerscript.js"
+</script>
+</html>
