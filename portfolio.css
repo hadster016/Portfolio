@@ -53,12 +53,6 @@ footer{
     text-align: center;
 }
 
-        /* body {
-            justify-content: center;
-            align-items: center;
-            height: 90vh;
-            background-color: #f5f5f5;
-        } */
         .window {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr ;
