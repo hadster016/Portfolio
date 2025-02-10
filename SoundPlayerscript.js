@@ -50,3 +50,12 @@ keys.forEach(key => key.addEventListener('transitionend', function(e){
     return;
     this.classList.remove('playing');
 }));
+
+  // Check if the page is loaded in an iframe
+  if (window.self !== window.top) {
+    // Hide the "Return to Home" button
+    const homeButton = document.querySelector('.footer');
+    if (homeButton) {
+      homeButton.style.display = 'none';
+    }
+  }

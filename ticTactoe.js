@@ -116,3 +116,13 @@ function handleRestartGame() {
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+
+
+  // Check if the page is loaded in an iframe
+  if (window.self !== window.top) {
+    // Hide the "Return to Home" button
+    const homeButton = document.querySelector('.footer');
+    if (homeButton) {
+      homeButton.style.display = 'none';
+    }
+  }

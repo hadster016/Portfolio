@@ -431,3 +431,9 @@ footer{
         transform: scale(1.2);
         text-shadow: 0 0 5px #ffc600, 0 0 10px #ffc600, 0 0 15px #ffc600;
     }
+    .ci, .ci .glow-on-hover, img {
+        transition: box-shadow 0.2s ease-in-out;
+    }
+    .ci:hover, .ci .glow-on-hover:hover, img:hover {
+        box-shadow: 0 0 30px rgba(231, 209, 5, 1);
+    }
