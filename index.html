@@ -110,7 +110,8 @@
         </body>
         
         <aside class="aside2" >
-            <div><h4>iframe</h4></div>
+            <div><h4 id="iframe-message">iframe</h4></div>
+        </br>
             <iframe id="project-iframe" src="" style="width: 100%; height: 500px; border: none;"></iframe>
         </aside>
 
@@ -138,8 +139,18 @@
             link.addEventListener('click', function(event) {
                 event.preventDefault();
                 document.getElementById('project-iframe').src = this.href;
+                document.getElementById('iframe-message').textContent = 'iframe: The link to Homepage in the footers are removed when they are loaded in this iframe';
             });
         }
+        });
+        // To unload the iframe when the user clicks outside of it
+        document.addEventListener('click', function(event) {
+            const iframe = document.getElementById('project-iframe');
+            const iframeMessage = document.getElementById('iframe-message');
+            if (!iframe.contains(event.target) && !event.target.closest('.project-panel a')) {
+                iframe.src = '';
+                iframeMessage.textContent = 'iframe';
+            }
         });
 
     const square = document.querySelector('.square');
