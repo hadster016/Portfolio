@@ -5,14 +5,15 @@
 }
 .container {
     display: grid;
-    /* height: 80vh; */
+    font-family: 'Poppins', sans-serif;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
         "header"
         "main"
         "main"
-        "newsection"
+        "newsection1"
+        "newsection2"
         "footer";
 }
 
@@ -28,15 +29,6 @@ header:hover {
     transform: scale(1.1);
     text-shadow: 0 0 5px #ffc800da, 0 0 10px #ffc800d7, 0 0 15px #ffc800da;
 }
-
-aside{
-    grid-area: newsection;
-    background-color: whitesmoke;
-    height: 25vh;
-    padding: 20px;
-    text-align: center;
-}
-
 main{
     grid-area: main;
     background-color: white;
@@ -51,6 +43,41 @@ footer{
     /* background-color: rgb(210, 228, 222); */
     padding: 20px;
     text-align: center;
+}
+
+.aside1 {
+    grid-area: newsection1;
+    background-color: rgb(243, 227, 7);
+    height: 10vh;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Center the aside1 horizontally */
+}
+
+.aside2 {
+    grid-area: newsection2;
+    background-color: whitesmoke;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    margin: 20px;
+    height: auto; /* Make height dynamic */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.aside2 iframe {
+    /* border-radius: 10px; */
+    display: block;
+    margin: 0 auto; /* Center the iframe horizontally */
 }
 
         .window {
@@ -73,7 +100,7 @@ footer{
             transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
             z-index: 3;
             background-color: white;
-
+            border-radius: 10px;
         }
 
         /* Panes: Top-left, Top-right, Bottom-left, Bottom-right */
@@ -81,7 +108,11 @@ footer{
             position: relative;
             background-color: rgb(250, 250, 227);
             transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
-            
+            border-radius: 10px;
+        }
+
+        .pane3, .pane4 {
+            transform: translateY(100px);
         }
         .figure {
             margin: 0;
@@ -186,7 +217,10 @@ footer{
 
         /* Hover effects for the panes (grow the hovered ones*/
         .pane1:hover ~ .pane3 {
-                transform: translateY(100px);
+                transform: translateY(140px);
+            }
+        .pane1:hover ~ .pane4 {
+                transform: translateY(140px);
             }
         .pane1:hover {
             position: relative;
@@ -196,7 +230,10 @@ footer{
             transform: scale(1.6);
         }
         .pane2:hover ~ .pane4 {
-                transform: translateY(100px);
+            transform: translateY(140px);
+            }
+        .pane2:hover ~ .pane3 {
+            transform: translateY(140px);
             }
         .pane2:hover {
             position: relative;
@@ -208,7 +245,7 @@ footer{
 
         .pane3:hover {
             position: relative;
-            top: -30px;
+            top: 50px;
             left: 200px;
             z-index: 3;
             transform: scale(1.6);
@@ -216,7 +253,7 @@ footer{
 
         .pane4:hover {
             position: relative;
-            top: -30px;
+            top: 50px;
             right: 200px;
             z-index: 3;
             transform: scale(1.6);
