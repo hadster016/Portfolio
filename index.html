@@ -16,8 +16,16 @@
                 <h5 class="text dark"
                  id="typewriter-text" style="--characters: 15;">Hi, I am Haider Ali, an aspiring full stack developer </h5>
                 </div>
+                <div class="dark-mode-toggle">
+                    <button id="dark-mode-toggle" class="toggle-switch">
+                        <span class="toggle-knob"></span></button>
+                </div>
+            
+                <div class="dark-mode-toggle">
+                    <p>Dark Mode</p>
+                </div>
         </header>
-        
+
         <body>
             <main>
                  <div class="window">
@@ -119,7 +127,7 @@
             <h2 style="margin: 0;">Haider Ali</h2>
             <p style="margin: 5px 0;">Email: <a href="mailto:your.email@example.com" style="color: #44db49;">hal03ali@hotmail.com</a></p>
             <div style="margin: 10px 0;">
-                <a href="https://twitter.com/yourprofile" class="social-icon" style="text-decoration: none;">
+                <a href="https://twitter.com/hadster0" class="social-icon" style="text-decoration: none;">
                     <i class="fab fa-twitter" style="font-size: 24px;"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/haiderali786/" class="social-icon" style="text-decoration: none;">
@@ -177,5 +185,11 @@
             square.classList.remove('hide-square');  // Show the square again
         });
     });
+
+const toggleButton = document.getElementById('dark-mode-toggle');
+toggleButton.addEventListener('click', () => {
+    toggleButton.classList.toggle('active');
+    document.body.classList.toggle('dark-mode'); // Optional: Toggle dark mode
+});
 </script>
 </html>
