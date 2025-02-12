@@ -87,6 +87,18 @@ kbd {
     margin-bottom: 5px;
 }
 
+.white kbs {
+    display: block;
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 40; /* Position on the left most white key */
+    /* transform: translateX(-10%); Center align */
+    text-align: center;
+}
+
 .sound {
     font-size: 1rem;
     letter-spacing: 1px;
@@ -135,8 +147,11 @@ kbd {
 }
 
 /* Positioning black keys */
-#C-sharp { left: 35px; top: 0px; } /* Position C# */
-#D-sharp { left: 90px;  top: 0px;  } /* Position D# */
-#F-sharp { left: 190px;  top: 0px; } /* Position F# */
-#G-sharp { left: 245px;  top: 0px; } /* Position G# */
-#A-sharp { left: 300px;  top: 0px;  } /* Position A# */
+#G-Flat  { left: 35px; top: 0px; } /* Position Gb */
+#A-Flat  { left: 90px; top: 0px; } /* Position Ab */
+#B-Flat  { left: 140px; top: 0px; } /* Position Bb */
+#C-sharp { left: 245px; top: 0px; } /* Position C# */
+#D-sharp { left: 295px;  top: 0px;  } /* Position D# */
+#F-sharp { left: 400px;  top: 0px; } /* Position F# */
+#G-sharp { left: 452px;  top: 0px; } /* Position G# */
+#A-sharp { left: 505px;  top: 0px;  } /* Position A# */

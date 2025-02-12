@@ -1,25 +1,51 @@
 //Keypress event listener
 document.body.style.backgroundImage = ".";
-window.addEventListener('keydown' , function(e){
+
+let isPlaying = {}; // Object to track which keys are currently playing
+
+// window.addEventListener('keydown' , function(e)
+document.addEventListener('keydown', (event) => {
     // const audio = document.querySelector(`audio[data-key="65"]`);
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"], .keys[data-key="${e.keyCode}"]`);
-   // logging to help work out the keys needed.
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${event.keyCode}"], .keys[data-key="${event.keyCode}"]`);
+    
+    // logging to help work out the keys needed.
     // console.log(e);
-    // console.log(e.keyCode);
-    // console.log(audio);
-    // console.log(key);
+    console.log(event.keyCode);
+    console.log(audio);
+    console.log(key);
+    
     if(!audio) return;
-    audio.currentTime = 0;
-    audio.play();
+
+    if (!isPlaying[event.keyCode]) {
+        audio.loop = true; // Loop the audio
+        audio.play().catch((error) => {
+            console.error("Error playing audio:", error);
+      });
+    isPlaying[event.keyCode] = true; //Mark the key as playing
     key.classList.add('playing'); //key.addclass('playing');
-            // Stop the audio after 0.7 seconds mainly to limit the piano sustain.
-            setTimeout(() => {
-                audio.pause();  
-                audio.currentTime = 0;  
-                key.classList.remove('playing'); // Remove the playing class
-            }, 700);
+    }
 });
+        // Event listener for keyup so I can stop the key play immediately, as this timing is needed to play a song properly
+        // window.addEventListener('keyup', function(e)
+        document.addEventListener('keyup', (event) => {
+            const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${event.keyCode}"], .keys[data-key="${event.keyCode}"]`);
+            if(!audio) return;
+            audio.loop = false;
+            audio.pause(); // Pause the audio when the key is released
+            audio.currentTime = 0; // Reset the audio to the beginning
+            isPlaying[event.keyCode] = false;
+            key.classList.remove('playing');
+                /*  // Stop the audio after 0.7 seconds mainly to limit the piano sustain. REMOVED as prefer the key up method.
+                 setTimeout(() => {
+                     audio.pause();  
+                     audio.currentTime = 0;  
+                     key.classList.remove('playing'); // Remove the playing class
+                 }, 1300); */
+          });
+
+
 
 // Select all elements with the class 'key' and 'keys'
 const keyDivs = document.querySelectorAll('.key, .keys');
@@ -28,7 +54,7 @@ const keyDivs = document.querySelectorAll('.key, .keys');
 keyDivs.forEach(keyDiv => { keyDiv.addEventListener('click', function(e) {
     const audio = document.querySelector(`audio[data-key="${keyDiv.dataset.key}"]`);
     const key = document.querySelector(`.key[data-key="${keyDiv.dataset.key}"], .keys[data-key="${keyDiv.dataset.key}"]`);
-    // console.log(key);
+    console.log(key);
     if (!audio) return; 
     audio.currentTime = 0; // Reset audio to start
     audio.play(); // Play the audio
@@ -38,7 +64,7 @@ keyDivs.forEach(keyDiv => { keyDiv.addEventListener('click', function(e) {
             audio.pause();  
             audio.currentTime = 0;  
             key.classList.remove('playing'); // Remove the playing class
-        }, 700);  
+        }, 1000);  
         });
 });
 
